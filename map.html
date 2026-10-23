@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Нейтральное название вкладки на всех страницах: не выдаёт тему сайта -->
+<title>рядом</title>
+<meta name="description" content="Полезные материалы и ссылки">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#E2E1DB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="рядом">
+<meta property="og:description" content="Полезные материалы и ссылки">
+<meta property="og:image" content="img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/layout.js"></script>
+
+<main id="main" data-map-page>
+
+  <section class="wrap page-head">
+    <p class="eyebrow">Карта помощи</p>
+    <h1>Центры помощи в России</h1>
+    <p class="lead">Выберите регион и что вам нужно. У каждого центра написано, что известно об условиях: можно ли с детьми, нужна ли прописка, работают ли круглосуточно.</p>
+    <div class="btn-row" style="margin-top:18px">
+      <a class="pill-link" href="#filters">Сразу к фильтрам <span aria-hidden="true">↓</span></a>
+      <a class="pill-link" href="contact.html" data-manager>Не знаете, с чего начать? Написать менеджеру <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="map-panel">
+      <div class="stats">
+        <div class="stat"><span class="caps">Центров в базе</span><span class="num" data-stat="total">—</span></div>
+        <div class="stat"><span class="caps">Регионов</span><span class="num" data-stat="regions">—</span></div>
+        <div class="stat"><span class="caps">Можно с детьми</span><span class="num" data-stat="kids">—</span></div>
+        <div class="stat"><span class="caps">Всероссийских линий</span><span class="num" data-stat="lines">—</span></div>
+      </div>
+      <div class="ru-map" data-ru-map></div>
+      <div class="map-legend caps muted">
+        <span>Нажмите на точку, чтобы выбрать регион</span>
+        <span>Чем крупнее точка, тем больше центров</span>
+      </div>
+    </div>
+    <p class="note" style="margin-top:14px">По нашим данным, центры из списка помогают женщинам в трудной ситуации. Свободные места уточните при звонке — или <a class="link" href="contact.html" data-manager>напишите менеджеру</a>, он позвонит за вас. Адресов убежищ на сайте нет: адрес называет сам центр.</p>
+  </section>
+
+  <section class="wrap section">
+    <div class="map-layout">
+
+      <aside class="filters" id="filters" aria-label="Фильтры">
+        <div class="filter-group">
+          <label class="caps" for="f-region">Город или регион</label>
+          <div class="select"><select id="f-region"></select></div>
+        </div>
+        <div class="filter-group" role="group" aria-labelledby="f-need-title">
+          <span class="caps" id="f-need-title">Что нужно</span>
+          <div class="chips">
+            <button type="button" class="chip chip-toggle" data-need="убежище" aria-pressed="false">Проживание</button>
+            <button type="button" class="chip chip-toggle" data-need="психолог" aria-pressed="false">Психолог</button>
+            <button type="button" class="chip chip-toggle" data-need="юрист" aria-pressed="false">Юрист</button>
+            <button type="button" class="chip chip-toggle" data-need="детский психолог" aria-pressed="false">Детский психолог</button>
+            <button type="button" class="chip chip-toggle" data-need="телефон доверия" aria-pressed="false">Телефон доверия</button>
+          </div>
+        </div>
+        <div class="filter-group" role="group" aria-labelledby="f-cond-title">
+          <span class="caps" id="f-cond-title">Условия</span>
+          <div class="chips">
+            <button type="button" class="chip chip-toggle" data-cond="kids" aria-pressed="false">С детьми</button>
+            <button type="button" class="chip chip-toggle" data-cond="noreg" aria-pressed="false">Без прописки</button>
+            <button type="button" class="chip chip-toggle" data-cond="h24" aria-pressed="false">Круглосуточно</button>
+          </div>
+        </div>
+        <div class="filters-foot">
+          <button type="button" class="reset-btn" id="f-reset">Сбросить</button>
+          <span class="note">Фильтры нигде не сохраняются</span>
+        </div>
+      </aside>
+
+      <div>
+        <div class="results-head" id="results-head">
+          <p class="results-count" id="results-count" aria-live="polite">—</p>
+          <div class="results-tools">
+            <a class="pill-link" href="#lines">Всероссийские линии <span aria-hidden="true">↓</span></a>
+            <a class="btn btn--sm" href="contact.html" data-manager>Написать менеджеру <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <p class="note" id="today-note" hidden style="margin-bottom:16px">Показаны центры с проживанием, которые работают круглосуточно. Если ничего не подходит, позвоните <a class="link" href="tel:88007000600">8 800 7000-600</a> — подскажут, кто может принять сегодня.</p>
+        <div class="results" id="results"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="wrap section" id="lines" aria-labelledby="lines-title">
+    <div class="section-head">
+      <h2 id="lines-title">Всероссийские линии</h2>
+      <p class="lead">Работают из любого региона: по телефону, в переписке или онлайн.</p>
+    </div>
+    <div class="results" id="lines-list"></div>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="split">
+      <div class="side-note">
+        <h2>Как связаться безопасно</h2>
+        <ul class="list-dash" style="margin-top:12px">
+          <li>Звоните с телефона подруги, с рабочего или когда его нет рядом.</li>
+          <li>После звонка удалите номер из журнала вызовов.</li>
+          <li>Не сохраняйте номер центра в контактах под настоящим названием.</li>
+          <li>Если разговор прервался — это нормально. Позвонить можно позже.</li>
+        </ul>
+      </div>
+      <div class="side-note">
+        <h2>Если вы из центра или специалист</h2>
+        <p style="margin-top:12px">Увидели ошибку в условиях или телефоне? Напишите нам — поправим и укажем дату проверки. </p>
+        <a class="pill-link" href="about.html#centers" style="margin-top:14px">Как прислать поправку <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="data/centers.js"></script>
+<script src="js/main.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>

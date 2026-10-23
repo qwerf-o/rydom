@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Нейтральное название вкладки на всех страницах: не выдаёт тему сайта -->
+<title>рядом</title>
+<meta name="description" content="Полезные материалы и ссылки">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#E2E1DB">
+<!-- Превью ссылки в мессенджерах — нейтральное. После выбора домена указать в og:image полный адрес -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="рядом">
+<meta property="og:description" content="Полезные материалы и ссылки">
+<meta property="og:image" content="img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/layout.js"></script>
+
+<main id="main">
+
+  <!-- Первый экран: одна фраза о проекте -->
+  <section class="wrap hero hero--home">
+    <img class="photo" src="img/photos/hero-hands.jpg" alt="" decoding="async" data-reveal>
+    <div class="hero-text" data-reveal>
+      <h1>рядом</h1>
+      <p class="lead">— проект о безопасных отношениях. Помогаем спокойно разобраться, что происходит, и найти помощь недалеко от дома.</p>
+      <svg class="squiggle" data-sq="hook" data-draw aria-hidden="true"></svg>
+      <p class="lead">Здесь есть пошаговый план безопасности и центры помощи с понятными условиями: можно ли с детьми, нужна ли прописка, работают ли круглосуточно.</p>
+    </div>
+  </section>
+
+  <!-- Четыре входа по состоянию -->
+  <section class="wrap section--tight" aria-labelledby="entries-title">
+    <h2 id="entries-title" class="eyebrow" style="margin-bottom:18px">Что вам сейчас ближе?</h2>
+    <div class="grid grid-4 entries">
+
+      <article class="card entry entry--panic" data-reveal>
+        <span class="entry-num">01</span>
+        <h3 class="entry-title">Мне страшно прямо сейчас</h3>
+        <p>Один экран: куда позвонить и кто может принять сегодня.</p>
+        <div class="entry-links">
+          <button type="button" class="arrow-link js-urgent"><span>Открыть</span><span class="arr" aria-hidden="true">→</span></button>
+        </div>
+      </article>
+
+      <article class="card entry" data-reveal>
+        <span class="entry-num">02</span>
+        <h3 class="entry-title">Не понимаю, что происходит</h3>
+        <p>«Я запуталась», «я во всём виновата», «хожу как по минному полю». Давайте разберёмся спокойно.</p>
+        <div class="entry-links">
+          <a class="arrow-link" href="tests.html"><span>Пройти тест</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="stories.html"><span>Истории</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="violence.html"><span>Про насилие</span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="card entry" data-reveal>
+        <span class="entry-num">03</span>
+        <h3 class="entry-title">Готовлюсь уйти</h3>
+        <p>План безопасности, что взять с собой и центры: с детьми, без прописки, круглосуточно.</p>
+        <div class="entry-links">
+          <a class="arrow-link" href="plan.html"><span>План безопасности</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="plan.html#checklist"><span>Что взять</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="map.html"><span>Карта помощи</span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="card entry" data-reveal>
+        <span class="entry-num">04</span>
+        <h3 class="entry-title">Хочу помочь близкой</h3>
+        <p>Что сказать подруге, сестре или маме — и чего лучше не говорить.</p>
+        <div class="entry-links">
+          <a class="arrow-link" href="close.html"><span>Что сказать</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="close.html#chat"><span>Интерактив «23:40»</span><span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="exit-banner" role="note" data-reveal>
+      <svg class="exit-banner-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20 4 7 9v10c0 8.3 5.6 14.6 13 17 7.4-2.4 13-8.7 13-17V9L20 4Z"/><path d="m14.5 20 4 4 7.5-8"/></svg>
+      <div class="exit-banner-text">
+        <p class="exit-banner-title">Уйти с сайта можно в любой момент</p>
+        <p>Нажмите «Быстрый выход» вверху или дважды <span class="kbd">Esc</span> — откроется прогноз погоды, а кнопка «назад» сюда не вернёт.</p>
+      </div>
+      <div class="exit-banner-actions">
+        <button type="button" class="btn btn--white js-exit">Быстрый выход</button>
+        <a class="btn btn--ghost-white" href="safety.html">Если телефон могут проверить <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Что такое насилие -->
+  <section class="wrap section" aria-labelledby="what-title">
+    <h2 id="what-title" data-reveal>Что такое домашнее насилие?</h2>
+    <div class="what-is" style="margin-top:40px">
+      <p class="lead p1" data-reveal><b>Домашнее насилие</b> — это не обычная ссора, а повторяющееся подавление человека ради контроля. Тот, кто его совершает, забирает себе власть: через побои, унижения, угрозы, деньги или запреты.</p>
+      <svg class="squiggle" data-sq="loop" data-draw aria-hidden="true"></svg>
+      <p class="lead p2" data-reveal><b>Главное отличие от конфликта</b> — здесь нет равенства. В ссоре люди спорят на равных и ищут компромисс. При насилии решает один, а второй живёт в страхе и теряет право выбора.</p>
+    </div>
+    <div class="btn-row" style="margin-top:40px" data-reveal>
+      <a class="btn" href="map.html">Найти центр помощи <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn--line" href="violence.html">Подробнее про насилие <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- Тесты -->
+  <section class="wrap section" aria-labelledby="tests-title">
+    <div class="tests-layout">
+      <div>
+        <h2 id="tests-title" data-reveal>Тесты самопомощи</h2>
+        <p class="lead" style="margin:18px 0 32px;max-width:520px" data-reveal>Несколько минут, без регистрации. Ответы не сохраняются — это специально.</p>
+        <div class="grid grid-2">
+          <a class="card card--test" href="tests.html#test-1" data-reveal>
+            <p class="card-title"><b>Тест:</b> Ссора или что-то большее?</p>
+            <p class="note">Поможет увидеть разницу между обычными ссорами и тем, что повторяется и лишает вас выбора.</p>
+            <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+            <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+          </a>
+          <a class="card card--test" href="tests.html#test-2" data-reveal>
+            <p class="card-title"><b>Тест:</b> Готова ли я к изменениям?</p>
+            <p class="note">Покажет, какие опоры у вас уже есть и что можно подготовить заранее, без спешки.</p>
+            <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+            <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+          </a>
+          <a class="card card--test alt" href="tests.html#test-3" data-reveal>
+            <p class="card-title"><b>Тест:</b> Что я чувствую?</p>
+            <p class="note">Поможет назвать то, что сейчас внутри: тревогу, вину, усталость. С этого можно начать заботу о себе.</p>
+            <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+            <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+          </a>
+        </div>
+      </div>
+      <img class="photo" src="img/photos/tests-eye.jpg" alt="" loading="lazy" decoding="async" data-reveal>
+    </div>
+  </section>
+
+  <!-- Истории -->
+  <section class="wrap section" aria-labelledby="stories-title">
+    <div class="section-head">
+      <h2 id="stories-title" data-reveal>Истории</h2>
+      <p class="lead" data-reveal>Собирательные истории по материалам практикующего психолога. Совпадения случайны.</p>
+    </div>
+    <div class="blue-block" data-reveal>
+      <div class="grid grid-3">
+        <a class="card card--link" href="stories.html#yulia">
+          <span class="caps">Юля, 27</span>
+          <p class="h3">«Тебе показалось»</p>
+          <p>Муж говорит, что она всё выдумывает. Юля начала вести дневник, чтобы проверять собственную память.</p>
+          <span class="arrow-link card-foot"><span>Читать</span><span class="arr" aria-hidden="true">→</span></span>
+        </a>
+        <a class="card card--link" href="stories.html#marina">
+          <span class="caps">Марина, 34</span>
+          <p class="h3">«Деньги под отчёт»</p>
+          <p>Муж выдаёт деньги по чекам. Двое детей, прописка в области — и непонятно, куда их возьмут.</p>
+          <span class="arrow-link card-foot"><span>Читать</span><span class="arr" aria-hidden="true">→</span></span>
+        </a>
+        <a class="card card--link" href="stories.html#natalya">
+          <span class="caps">Наталья, 50</span>
+          <p class="h3">«Стыдно на старости лет»</p>
+          <p>Двадцать пять лет брака. Кажется, что менять что-то поздно и стыдно перед людьми.</p>
+          <span class="arrow-link card-foot"><span>Читать</span><span class="arr" aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <div class="btn-row" style="margin-top:28px">
+        <a class="btn btn--white" href="stories.html">Все истории <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Карта помощи -->
+  <section class="wrap section" aria-labelledby="map-title">
+    <div class="section-head">
+      <h2 id="map-title" data-reveal>Карта помощи</h2>
+      <p class="lead" data-reveal>Выберите свой город и подберите центр, который подходит именно вам.</p>
+    </div>
+    <div class="map-panel" data-reveal>
+      <div class="stats">
+        <div class="stat"><span class="caps">Центров в базе</span><span class="num" data-stat="total">—</span></div>
+        <div class="stat"><span class="caps">Регионов</span><span class="num" data-stat="regions">—</span></div>
+        <div class="stat"><span class="caps">Можно с детьми</span><span class="num" data-stat="kids">—</span></div>
+        <div class="stat"><span class="caps">Всероссийских линий</span><span class="num" data-stat="lines">—</span></div>
+      </div>
+      <div class="ru-map" data-ru-map="mini"></div>
+      <div class="exit-hint" style="margin-top:8px">
+        <p class="note">Свободные места уточните при звонке — или попросите менеджера позвонить за вас.</p>
+        <a class="btn" href="map.html">Найти центр <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Что взять с собой -->
+  <section class="wrap section" aria-labelledby="take-title">
+    <div class="split">
+      <div data-reveal>
+        <h2 id="take-title">Что взять с собой</h2>
+        <p class="lead" style="margin-top:18px;max-width:460px">Если вы готовитесь уйти, главное лучше собрать заранее. Отметки в чек-листе нигде не сохраняются.</p>
+        <a class="btn" style="margin-top:28px" href="plan.html#checklist">Открыть чек-лист <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <ul class="list-dash prose" data-reveal>
+        <li>Паспорт, свидетельства о рождении детей, полисы, СНИЛС</li>
+        <li>Деньги и карта, о которой он не знает</li>
+        <li>Лекарства на несколько дней — себе и детям</li>
+        <li>Зарядка для телефона</li>
+        <li>Копии документов у человека, которому вы доверяете</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Как проверяем центры -->
+  <section class="wrap section" aria-labelledby="check-title">
+    <div class="section-head">
+      <h2 id="check-title" data-reveal>Как мы проверяем центры</h2>
+      <p class="lead" data-reveal>Чтобы вы видели не просто телефон, а понятные условия.</p>
+    </div>
+    <div class="grid grid-4 how-steps">
+      <div class="how-step" data-reveal><span class="n">01</span><p>Берём центры из открытых списков некоммерческих организаций и соцзащиты.</p></div>
+      <div class="how-step" data-reveal><span class="n">02</span><p>Звоним как обычная женщина, которой нужна помощь: кого принимают, нужна ли прописка, можно ли с детьми.</p></div>
+      <div class="how-step" data-reveal><span class="n">03</span><p>Записываем условия и дату звонка в карточку центра.</p></div>
+      <div class="how-step" data-reveal><span class="n">04</span><p>Перезваниваем раз в 30 дней. Если проверки давно не было, карточка скрывается.</p></div>
+    </div>
+    <div class="exit-hint" style="margin-top:28px">
+      <p class="note">Не хотите звонить сами — менеджер проекта позвонит в центр за вас.</p>
+      <a class="pill-link" href="about.html#check">Подробнее о проверке <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- Близким -->
+  <section class="wrap section" aria-labelledby="close-title">
+    <div class="split">
+      <div data-reveal>
+        <p class="eyebrow" id="close-title">Если помогаете близкой</p>
+        <p class="quote" style="margin-top:16px">«Я тебе верю. Ты не виновата. Моя дверь для тебя всегда открыта»</p>
+      </div>
+      <div data-reveal>
+        <div class="prose">
+          <p>Чаще всего женщина сначала рассказывает подруге, сестре или маме. От первых слов зависит, придёт ли она снова. Мы собрали, что помогает и чего лучше не говорить.</p>
+        </div>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="btn" href="close.html">Как поддержать <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--line" href="close.html#chat">Интерактив «23:40»</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="data/centers.js"></script>
+<script src="js/main.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>

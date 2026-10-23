@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Нейтральное название вкладки на всех страницах: не выдаёт тему сайта -->
+<title>рядом</title>
+<meta name="description" content="Полезные материалы и ссылки">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#E2E1DB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="рядом">
+<meta property="og:description" content="Полезные материалы и ссылки">
+<meta property="og:image" content="img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/layout.js"></script>
+
+<main id="main">
+
+  <section class="wrap page-head">
+    <p class="eyebrow">Тесты самопомощи</p>
+    <h1>Разобраться в себе</h1>
+    <p class="lead">Несколько минут, по одному вопросу на экран. Без регистрации. Ответы не сохраняются — это специально: результат исчезнет, когда вы закроете вкладку.</p>
+  </section>
+
+  <section class="wrap" id="tests-list" aria-label="Выберите тест">
+    <div class="grid grid-3">
+      <a class="card card--test" href="#test-1" data-start="test-1" data-reveal>
+        <p class="card-title"><b>Тест:</b> Ссора или что-то большее?</p>
+        <p class="note">Поможет увидеть разницу между обычными ссорами и тем, что повторяется и лишает вас выбора. 10 вопросов.</p>
+        <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+        <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+      </a>
+      <a class="card card--test" href="#test-2" data-start="test-2" data-reveal>
+        <p class="card-title"><b>Тест:</b> Готова ли я к изменениям?</p>
+        <p class="note">Покажет, какие опоры у вас уже есть и что можно подготовить заранее, без спешки. 9 вопросов.</p>
+        <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+        <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+      </a>
+      <a class="card card--test alt" href="#test-3" data-start="test-3" data-reveal>
+        <p class="card-title"><b>Тест:</b> Что я чувствую?</p>
+        <p class="note">Поможет назвать то, что сейчас внутри: тревогу, вину, усталость. 9 вопросов.</p>
+        <span class="card-foot btn btn--sm">Пройти <span class="arr" aria-hidden="true">→</span></span>
+        <svg class="squiggle" data-sq="corner" data-draw aria-hidden="true"></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="test-box" id="test-box" aria-live="polite" hidden></div>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="split">
+      <div class="side-note">
+        <h2>Это не диагноз</h2>
+        <p>Тесты не ставят оценок и не решают за вас. Они помогают посмотреть на ситуацию со стороны. Если после теста стало тревожно, можно поговорить с психологом анонимно: <a class="link" href="tel:88007000600">8 800 7000-600</a>.</p>
+      </div>
+      <div class="side-note">
+        <h2>Откуда вопросы</h2>
+        <p>Вопросы составлены по материалам практикующего психолога. Они описывают поступки и чувства, а не ярлыки.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/tests.js"></script>
+</body>
+</html>
