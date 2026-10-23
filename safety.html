@@ -17,8 +17,20 @@
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
+<!-- Яндекс Метрика. Вебвизор выключен: он записывает экран, в том числе ответы тестов -->
+<script>
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113755284', 'ym');
+  ym(113755284, 'init', {ssr: true, webvisor: false, clickmap: true, referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true});
+</script>
+<!-- /Яндекс Метрика -->
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113755284" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <script src="js/layout.js"></script>
 
 <main id="main">
@@ -37,8 +49,9 @@
           <li>Во вкладке и в превью ссылки написано просто «рядом».</li>
           <li>Кнопка «Быстрый выход» или <span class="kbd">Esc</span> дважды сразу открывают прогноз погоды.</li>
           <li>Переходы по страницам сайта не копятся в кнопке «назад»: после выхода она не вернёт сюда.</li>
-          <li>Ничего не сохраняем: нет регистрации, cookies и форм. Ответы тестов исчезают вместе с вкладкой.</li>
-          <li>Нет рекламных пикселей и записи экрана.</li>
+          <li>Нет регистрации и форм. Ответы тестов исчезают вместе с вкладкой.</li>
+          <li>Посещения считает Яндекс Метрика без записи экрана. Она оставляет в браузере cookies, поэтому, если телефон проверяют, открывайте сайт в режиме инкогнито.</li>
+          <li>Нет рекламных пикселей.</li>
         </ul>
       </div>
       <div class="side-note" data-reveal>

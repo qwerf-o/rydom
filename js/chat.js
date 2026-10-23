@@ -95,6 +95,7 @@
   }
 
   function finish() {
+    if (window.ryadomGoal) window.ryadomGoal("chat_done");
     add("Спасибо. Мне правда стало спокойнее<time>23:52</time>", "msg--her");
     choicesEl.innerHTML =
       '<p class="caps">Итог</p>' +

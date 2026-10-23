@@ -4,7 +4,8 @@
    - переходы по сайту не копятся в кнопке «назад»
    - экран «Срочная помощь», меню, поиск
    - росчерки и плавное появление блоков
-   Ничего не сохраняется: ни localStorage, ни cookies.
+   Сам сайт ничего не сохраняет: ни localStorage, ни cookies.
+   Свои cookies ставит только Яндекс Метрика (без Вебвизора).
    ========================================================= */
 
 (function () {
@@ -564,6 +565,24 @@
     }
     document.addEventListener("toggle", later, true);
   }
+
+  /* ---------- цели Яндекс Метрики ----------
+     Только действия, без текста ответов: позвонила, написала менеджеру,
+     прошла тест, дошла до конца «23:40», открыла «Поддержать». */
+
+  function goal(name) {
+    try { if (window.ym) window.ym(113755284, "reachGoal", name); } catch (e) {}
+  }
+  window.ryadomGoal = goal;
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[href], button");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (/^tel:/i.test(href)) goal("call");
+    else if (a.hasAttribute("data-manager") || /t\.me\/|tg:\/\//.test(a.href || "")) goal("manager");
+    else if (a.closest(".js-donate")) goal("donate");
+  }, true);
 
   /* ---------- старт ---------- */
 

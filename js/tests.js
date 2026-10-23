@@ -241,6 +241,7 @@
       '<p class="note">Ответы не сохраняются — это специально. Результат исчезнет, когда вы закроете вкладку или нажмёте «Закрыть тест».</p>' +
       "</div>";
     box.querySelector("h2").focus({ preventScroll: true });
+    if (window.ryadomGoal) window.ryadomGoal("test_done");
   }
 
   box.addEventListener("click", function (e) {

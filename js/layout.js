@@ -4,10 +4,10 @@
    Один файл на все страницы: меню, подвал и порядок страниц правятся здесь.
    Подключается первым тегом внутри <body>.
 
-   Яндекс Метрика: когда будет счётчик, вставить код сюда
-   (или в <head> каждой страницы) с настройками
-   webvisor: false, clickmap: false, trackLinks: false.
+   Яндекс Метрика (счётчик 113755284) стоит в <head> каждой страницы.
    Вебвизор не включать: он записывает экран, в том числе ответы тестов.
+   Цели-события отправляет js/main.js (ryadomGoal): call, manager,
+   test_done, chat_done, donate.
    Рекламные пиксели (VK, Яндекс Директ и т.п.) не ставить.
    ========================================================= */
 
@@ -251,7 +251,7 @@
     '<button type="button" class="urgent-close" data-close aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg></button>' +
     "</div>" +
     '<div class="modal-step" data-step="1">' +
-    '<p>«рядом» — некоммерческий проект. Мы не показываем рекламу и не собираем данные, поэтому живём на пожертвования.</p>' +
+    '<p>«рядом» — некоммерческий проект. Мы не показываем рекламу и не собираем личные данные, поэтому живём на пожертвования.</p>' +
     '<div style="margin-top:18px"><div class="seg" role="group" aria-label="Как часто">' +
     '<button type="button" data-freq="once" aria-pressed="true">Разово</button>' +
     '<button type="button" data-freq="month" aria-pressed="false">Каждый месяц</button>' +
