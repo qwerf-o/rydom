@@ -151,11 +151,12 @@ h1, h2,
 
 h1, .h1 { font-size: clamp(25px, 5.2vw, 60px); }
 h2, .h2 { font-size: clamp(22px, 3.6vw, 44px); }
-/* широкий шрифт: длинные слова на узком экране переносим, а не выпускаем за край */
+/* широкий шрифт: без переносов «ПРЯ-МО». Если слово не влезает, main.js (fitText) чуть уменьшает шрифт.
+   break-word — запасной вариант, если и после уменьшения не влезло */
 h1, h2, h3, .h-display, .entry-title, .quote, .card-title, .story-quote, .exit-banner-title, .story-card .who, .myth-side .m {
   overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: manual;
+  hyphens: manual;
 }
 
 h3, .h3 {
@@ -622,6 +623,14 @@ h3, .h3 {
 @media (min-width: 901px) {
   .btn .short { display: none; }
 }
+/* самые узкие телефоны (320–360): логотип и три кнопки в одну строку */
+@media (max-width: 360px) {
+  .header-row { gap: 6px; }
+  .logo-word { font-size: 20px; }
+  .header-actions { gap: 4px; }
+  .header-actions .btn--sm { padding: 8px 9px; font-size: 11px; letter-spacing: .02em; }
+  .menu-toggle { width: 40px; }
+}
 
 /* ---------- секции ---------- */
 
@@ -672,6 +681,7 @@ main { display: block; }
 }
 @media (max-width: 640px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 20px; }
 }
 
 .split {
@@ -942,6 +952,7 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
   line-height: 1.1;
   white-space: nowrap;
 }
+.phone-card .nw { white-space: nowrap; }
 .phone-card .what { font-size: 16px; }
 .phone-card .caps { color: var(--muted); }
 
@@ -1134,8 +1145,10 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 .urgent::backdrop { background: rgba(30, 38, 55, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 .urgent[open] { animation: urgent-in .35s var(--ease); }
 @keyframes urgent-in { from { opacity: 0; transform: translateY(12px); } }
-.urgent-inner { padding: 28px 24px 24px; display: grid; gap: 14px; }
+.urgent-inner { padding: 28px 24px 24px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .urgent-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.urgent-top h2 { flex: 1; min-width: 0; }
+.urgent-close { flex: none; }
 .urgent h2 { font-size: clamp(22px, 4vw, 30px); }
 .urgent-close {
   flex: none;
@@ -1148,6 +1161,12 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
   line-height: 1;
 }
 .urgent .phone-card .num { font-size: 34px; }
+@media (max-width: 640px) {
+  .urgent { overflow-x: hidden; }
+  .urgent-inner { padding: 20px 16px 18px; gap: 12px; }
+  .urgent .phone-card { padding: 18px 16px; }
+  .urgent .phone-card .num { font-size: 30px; white-space: normal; }
+}
 .urgent .phone-card--main { background: var(--blue); border-color: var(--blue); color: var(--on-blue); }
 .urgent .phone-card--main .num,
 .urgent .phone-card--main .caps { color: var(--on-blue); }
@@ -1288,6 +1307,10 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 }
 @media (max-width: 760px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 400px) {
+  .stats { gap: 10px; }
+  .stat { padding: 14px 12px 16px; }
 }
 
 .map-panel {
@@ -1838,6 +1861,10 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 }
 .big-link:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 18px 36px -24px rgba(30, 45, 80, .45); }
 .big-link:hover .arr { transform: translateX(8px); }
+@media (max-width: 640px) {
+  .big-link { grid-template-columns: minmax(0, 1fr); padding: 22px 20px; }
+  .big-link .arr { grid-row: auto; grid-column: 1; font-size: 24px; line-height: 1; }
+}
 
 .how-steps { counter-reset: hs; }
 .how-step { padding-top: 18px; border-top: 1px solid var(--blue); }
@@ -1942,7 +1969,7 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 }
 .modal::backdrop { background: rgba(30, 38, 55, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 .modal[open] { animation: urgent-in .35s var(--ease); }
-.modal-inner { padding: 28px 24px 24px; display: grid; gap: 18px; }
+.modal-inner { padding: 28px 24px 24px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .modal h2 { font-size: clamp(22px, 4vw, 30px); }
 .modal h3 { font-size: 17px; margin-bottom: 8px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 3px; }
@@ -1959,6 +1986,12 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 }
 .seg button[aria-pressed="true"] { background: var(--blue); color: var(--on-blue); }
 .amounts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+@media (max-width: 640px) {
+  .modal { overflow-x: hidden; }
+  .modal-inner { padding: 20px 16px 18px; gap: 16px; }
+  .modal .seg { display: flex; }
+  .modal .seg button { flex: 1; padding: 6px 10px; }
+}
 .amounts .chip-toggle { font-size: 15px; letter-spacing: 0; }
 .amount-other {
   display: flex;
@@ -2274,7 +2307,8 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
   background: var(--blue);
   color: var(--on-blue);
 }
-.center .contacts .phones { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.center .contacts .phones { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.center .contacts .phone-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .center .contacts .phones a[href^="tel:"] {
   display: inline-flex;
   align-items: center;

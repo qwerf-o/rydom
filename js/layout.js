@@ -227,7 +227,7 @@
     "</a>" +
     '<a class="phone-card" href="tel:88007000600">' +
     '<span class="caps">Поговорить с консультантом</span>' +
-    '<span class="num">8 800 7000-600</span>' +
+    '<span class="num"><span class="nw">8 800</span> <span class="nw">7000-600</span></span>' +
     '<span class="what">Бесплатно, анонимно, круглосуточно, из любого региона.</span>' +
     "</a>" +
     '<a class="btn btn--line btn--wide" href="map.html#segodnya">Кто может принять сегодня <span class="arr" aria-hidden="true">→</span></a>' +

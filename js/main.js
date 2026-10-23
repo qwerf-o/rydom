@@ -119,6 +119,7 @@
     } else {
       d.setAttribute("open", "");
     }
+    fitText();
   }
   window.ryadomUrgent = openUrgent;
 
@@ -433,6 +434,7 @@
       closeMenu();
       reset();
       if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+      fitText();
     });
     d.addEventListener("click", function (e) {
       var a = e.target.closest("[data-amount]");
@@ -489,6 +491,8 @@
   var RE_SHORT = /(^|[\s«„"(\/])((?!(?:же|ли|бы|ль)[ \t\n\r])[А-Яа-яЁёA-Za-z]{1,2}|что|Что|как|Как|для|Для|без|Без|при|При|про|Про|над|Над|под|Под|или|Или|\d+)[ \t\n\r]+(?=\S)/g;
   var RE_DASH = /[ \t\n\r]+([—–])/g;
   var RE_PART = /[ \t\n\r]+(ли|же|бы|ль)(?=[\s.,!?:;»)]|$)/g;
+  // «2–4 месяца», «8-800»: после тире между цифрами строку не рвём
+  var RE_RANGE = /(\d[–—-])(?=\d)/g;
   var SKIP = { SCRIPT: 1, STYLE: 1, TEXTAREA: 1, INPUT: 1, CODE: 1, PRE: 1, svg: 1, SVG: 1 };
 
   function typoText(t) {
@@ -497,7 +501,8 @@
       prev = t;
       t = t.replace(RE_SHORT, "$1$2" + NBSP);
     } while (t !== prev);
-    return t.replace(RE_DASH, NBSP + "$1").replace(RE_PART, NBSP + "$1");
+    return t.replace(RE_DASH, NBSP + "$1").replace(RE_PART, NBSP + "$1")
+      .replace(RE_RANGE, "$1\u2060");
   }
 
   function typo(root) {
@@ -526,6 +531,40 @@
     }).observe(document.body, { childList: true, subtree: true });
   }
 
+  /* ---------- заголовки под ширину экрана ----------
+     IF Kica широкий: на телефоне длинное слово может не влезть в строку.
+     Вместо переноса «ПРЯ-МО» чуть уменьшаем шрифт, пока слово не поместится. */
+
+  var FIT = "h1, h2, h3, .h-display, .entry-title, .exit-banner-title, .story-quote, .card-title, .big-number .num, .phone-card .num, .stat .caps";
+
+  function fitText() {
+    document.querySelectorAll(FIT).forEach(function (el) {
+      el.style.fontSize = "";
+      if (!el.clientWidth) return;
+      el.style.overflowWrap = "normal";
+      var size = parseFloat(getComputedStyle(el).fontSize);
+      var min = size * 0.7;
+      while (el.scrollWidth > el.clientWidth + 1 && size > min) {
+        size -= 1;
+        el.style.fontSize = size + "px";
+      }
+      el.style.overflowWrap = "";
+    });
+  }
+
+  function initFit() {
+    var timer;
+    function later() { clearTimeout(timer); timer = setTimeout(fitText, 120); }
+    fitText();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
+    window.addEventListener("resize", later);
+    // карточки центров, результаты тестов и окна появляются позже
+    if ("MutationObserver" in window) {
+      new MutationObserver(later).observe(document.body, { childList: true, subtree: true });
+    }
+    document.addEventListener("toggle", later, true);
+  }
+
   /* ---------- старт ---------- */
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -539,6 +578,7 @@
     initDonate();
     initTimeline();
     initTypo();
+    initFit();
     markExternal();
     if (location.hash === "#urgent") openUrgent();
   });

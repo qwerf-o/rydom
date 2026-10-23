@@ -215,8 +215,15 @@
 
   /* ---------- карточка центра ---------- */
 
+  // каждый номер — своей строкой: «;» между номерами не выводим
   function phonesHTML(str) {
     if (!str) return "";
+    return str.split(/\s*;\s*/).filter(Boolean).map(function (part) {
+      return '<span class="phone-row">' + phoneLine(part) + "</span>";
+    }).join("");
+  }
+
+  function phoneLine(str) {
     var re = /(\+7|8)?[\s-]?(\(\d{3,5}\)|\d{3,5})[\s-]?\d{1,3}(?:[\s-]?\d{2,4}){1,3}/g;
     var out = "", last = 0, m;
     while ((m = re.exec(str))) {
