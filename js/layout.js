@@ -135,8 +135,8 @@
     "</a>" +
     searchForm("search-top") +
     '<div class="header-actions">' +
-    '<button type="button" class="btn btn--sm js-urgent" aria-haspopup="dialog">' +
-    '<span class="full">Срочная помощь</span><span class="short">Срочно</span></button>' +
+    '<button type="button" class="btn btn--sm js-urgent" aria-haspopup="dialog" aria-label="Срочная помощь">' +
+    '<span class="full">Срочная помощь</span><span class="short">SOS</span></button>' +
     '<button type="button" class="btn btn--sm btn--line js-exit" title="Быстрый выход: откроется прогноз погоды. Или нажмите Esc дважды">' +
     '<span class="full">Быстрый выход</span><span class="short">Выход</span></button>' +
     '<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Меню">' +
