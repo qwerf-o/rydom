@@ -188,6 +188,10 @@ h3, .h3 {
 @media (min-width: 900px) {
   .lead { font-size: 16px; }
 }
+/* на телефоне длинный лид капсом читается тяжело: обычный регистр */
+@media (max-width: 640px) {
+  .lead { text-transform: none; letter-spacing: 0; font-size: 17px; line-height: 1.5; }
+}
 
 .eyebrow {
   display: inline-block;
@@ -784,6 +788,28 @@ a.card:hover .arr { transform: translateX(6px); }
 .entry--panic .entry-links { border-top-color: rgba(255, 255, 255, .3); }
 .entry--panic .arrow-link { color: var(--on-blue); }
 .entry button.arrow-link { border: 0; background: none; padding: 0; width: 100%; text-align: left; }
+
+/* строка «Что вам сейчас ближе?» — только на телефоне */
+.entry-jump { display: none; }
+@media (max-width: 640px) {
+  .entry-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .entry-jump a,
+  .entry-jump button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 14px;
+    border: 1px solid var(--blue);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--blue-ink);
+    font: inherit;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .entry-jump .entry-jump-sos { background: var(--blue); color: var(--on-blue); }
+  .entry { padding: 22px 20px 14px; }
+}
 
 /* тест-карточка с росчерком в углу */
 .card--test { min-height: 230px; padding-right: 36px; }
@@ -2331,6 +2357,8 @@ img.photo { width: 100%; height: auto; object-fit: cover; }
 }
 .center .contacts .phones a[href^="tel:"]:hover { background: var(--blue); color: var(--on-blue); }
 .results-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.today-note { display: grid; gap: 8px; margin-bottom: 16px; padding: 16px; border: 1px solid var(--blue); border-radius: var(--radius); background: var(--card); }
+.today-note[hidden] { display: none; }
 
 /* =========================================================
    Команда, программы, связь

@@ -38,6 +38,13 @@
   <!-- Четыре входа по состоянию -->
   <section class="wrap section--tight" aria-labelledby="entries-title">
     <h2 id="entries-title" class="eyebrow" style="margin-bottom:18px">Что вам сейчас ближе?</h2>
+    <!-- на телефоне карточки идут друг под другом, поэтому все четыре состояния дублируем короткой строкой -->
+    <nav class="entry-jump" aria-label="Быстрый выбор">
+      <button type="button" class="entry-jump-sos js-urgent">Страшно сейчас</button>
+      <a href="#e-tuman">Не понимаю, что происходит</a>
+      <a href="#e-plan">Готовлюсь уйти</a>
+      <a href="#e-close">Хочу помочь близкой</a>
+    </nav>
     <div class="grid grid-4 entries">
 
       <article class="card entry entry--panic" data-reveal>
@@ -49,7 +56,7 @@
         </div>
       </article>
 
-      <article class="card entry" data-reveal>
+      <article class="card entry" id="e-tuman" data-reveal>
         <span class="entry-num">02</span>
         <h3 class="entry-title">Не понимаю, что происходит</h3>
         <p>«Я запуталась», «я во всём виновата», «хожу как по минному полю». Давайте разберёмся спокойно.</p>
@@ -60,18 +67,18 @@
         </div>
       </article>
 
-      <article class="card entry" data-reveal>
+      <article class="card entry" id="e-plan" data-reveal>
         <span class="entry-num">03</span>
         <h3 class="entry-title">Готовлюсь уйти</h3>
         <p>План безопасности, что взять с собой и центры: с детьми, без прописки, круглосуточно.</p>
         <div class="entry-links">
           <a class="arrow-link" href="plan.html"><span>План безопасности</span><span class="arr" aria-hidden="true">→</span></a>
           <a class="arrow-link" href="plan.html#checklist"><span>Что взять</span><span class="arr" aria-hidden="true">→</span></a>
-          <a class="arrow-link" href="map.html"><span>Карта помощи</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="arrow-link" href="map.html#filters"><span>Подобрать центр</span><span class="arr" aria-hidden="true">→</span></a>
         </div>
       </article>
 
-      <article class="card entry" data-reveal>
+      <article class="card entry" id="e-close" data-reveal>
         <span class="entry-num">04</span>
         <h3 class="entry-title">Хочу помочь близкой</h3>
         <p>Что сказать подруге, сестре или маме — и чего лучше не говорить.</p>

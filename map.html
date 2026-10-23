@@ -90,7 +90,11 @@
             <a class="btn btn--sm" href="contact.html" data-manager>Написать менеджеру <span class="arr" aria-hidden="true">→</span></a>
           </div>
         </div>
-        <p class="note" id="today-note" hidden style="margin-bottom:16px">Показаны центры с проживанием, которые работают круглосуточно. Если ничего не подходит, позвоните <a class="link" href="tel:88007000600">8 800 7000-600</a> — подскажут, кто может принять сегодня.</p>
+        <div class="today-note" id="today-note" hidden>
+          <label class="caps" for="today-city">Ваш город</label>
+          <div class="select"><select id="today-city" data-today-city></select></div>
+          <p class="note">Показаны центры с проживанием, которые работают круглосуточно. Если ничего не подходит, позвоните <a class="link" href="tel:88007000600">8 800 7000-600</a> — подскажут, кто может принять сегодня.</p>
+        </div>
         <div class="results" id="results"></div>
       </div>
 

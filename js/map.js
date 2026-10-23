@@ -443,17 +443,35 @@
       setTimeout(function () { el.style.boxShadow = ""; }, 2200);
     }
 
-    // адрес после # задаёт стартовые фильтры: #segodnya, #r-Регион, #c-id
+    // в режиме «сегодня» город выбирают прямо над списком, не поднимаясь к фильтрам
+    var todayCity = document.querySelector("[data-today-city]");
+    if (todayCity) {
+      todayCity.innerHTML = sel.innerHTML;
+      todayCity.addEventListener("change", function () {
+        sel.value = todayCity.value;
+        sel.dispatchEvent(new Event("change"));
+      });
+      sel.addEventListener("change", function () { todayCity.value = sel.value; });
+    }
+
+    // адрес после # задаёт стартовые фильтры: #segodnya, #psiholog, #r-Регион, #c-id
     function applyHash() {
       var h = decodeURIComponent(location.hash.slice(1));
       if (!h) return;
       if (h === "segodnya") {
         state = { region: "", needs: ["убежище"], kids: false, noreg: false, h24: true, showUnknown: false, limit: PAGE };
         sel.value = "";
+        if (todayCity) todayCity.value = "";
         update();
         var note = document.getElementById("today-note");
         if (note) note.hidden = false;
         document.getElementById("results-head").scrollIntoView({ block: "start" });
+      } else if (h === "psiholog") {
+        // из результата теста: психологи, город выбирает она сама
+        state = { region: "", needs: ["психолог"], kids: false, noreg: false, h24: false, showUnknown: false, limit: PAGE };
+        sel.value = "";
+        update();
+        document.getElementById("filters").scrollIntoView({ block: "start" });
       } else if (h.indexOf("r-") === 0) {
         state.region = h.slice(2);
         sel.value = state.region;
