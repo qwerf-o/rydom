@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Нейтральное название вкладки на всех страницах: не выдаёт тему сайта -->
+<title>рядом</title>
+<meta name="description" content="Полезные материалы и ссылки">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#E2E1DB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="рядом">
+<meta property="og:description" content="Полезные материалы и ссылки">
+<meta property="og:image" content="img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/layout.js"></script>
+
+<main id="main">
+
+  <section class="wrap page-head">
+    <p class="eyebrow">Связаться</p>
+    <h1>Дальше — живой разговор</h1>
+    <p class="lead">Вы уже сделали важный шаг. Выберите, как вам удобнее: позвонить на линию, в центр или написать нам.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="contact-grid">
+
+      <article class="card contact-card" data-reveal>
+        <span class="caps blue">01 Позвонить на линию</span>
+        <h2 class="h3">Телефон доверия для женщин</h2>
+        <a class="big-number big-number--sm" href="tel:88007000600"><span class="num"><span class="nw">8 800</span> <span class="nw">7000-600</span></span><span class="caps">бесплатно, анонимно, круглосуточно</span></a>
+        <p>Выслушают, помогут составить план и подскажут центры в вашем городе. Имя называть не обязательно.</p>
+      </article>
+
+      <article class="card contact-card" data-reveal>
+        <span class="caps blue">02 Позвонить в центр</span>
+        <h2 class="h3">Подобрать центр по условиям</h2>
+        <p>На карте отметьте, что нужно: проживание, психолог, юрист, с детьми, без прописки. На карточке центра будет готовая фраза для звонка.</p>
+        <a class="btn card-foot" href="map.html">Открыть карту помощи <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card contact-card" id="manager" data-reveal>
+        <span class="caps blue">03 Написать нам</span>
+        <h2 class="h3">Менеджер проекта</h2>
+        <p>Если не знаете, с чего начать, или не нашли подходящий центр, напишите нам в Telegram. Подберём центр в вашем городе и можем сами позвонить туда за вас — узнать условия и свободные места.</p>
+        <a class="btn card-foot" href="#" data-manager data-manager-main>Написать менеджеру <span class="arr" aria-hidden="true">→</span></a>
+        <p class="note" data-manager-has hidden>Если приложение не открылось, найдите в поиске Telegram ник <strong data-manager-nick></strong>.</p>
+        <p class="note" data-manager-note>Ссылка появится, когда проект запустит чат с менеджером. Пока можно позвонить на линию 8 800 7000-600.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="split">
+      <div class="side-note" data-reveal>
+        <h2>Как написать безопасно</h2>
+        <ul class="list-dash">
+          <li>Пишите с телефона, который он не проверяет: подруги или рабочего.</li>
+          <li>Имя и адрес можно не называть.</li>
+          <li>После переписки удалите чат.</li>
+          <li>Если Telegram не открывается, позвоните на линию 8 800 7000-600.</li>
+        </ul>
+      </div>
+      <div class="side-note" data-reveal>
+        <h2>Что мы можем и чего не можем</h2>
+        <p>Мы подскажем, куда обратиться, и поможем разобраться с условиями центров. Мы не экстренная служба и не психологи на линии.</p>
+        <p style="margin-top:10px"><strong>Если опасно прямо сейчас — звоните <a class="link" href="tel:112">112</a>.</strong></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js"></script>
+<script>
+  // Пока ника менеджера нет (MANAGER_URL в js/layout.js пустой), главная кнопка ведёт на линию 8 800.
+  document.addEventListener("DOMContentLoaded", function () {
+    var url = window.RYADOM && window.RYADOM.managerUrl;
+    var btn = document.querySelector("[data-manager-main]");
+    var note = document.querySelector("[data-manager-note]");
+    if (url) { note.hidden = true; document.querySelector("[data-manager-has]").hidden = false; return; }
+    btn.setAttribute("href", "tel:88007000600");
+    btn.innerHTML = 'Пока позвонить: 8 800 7000-600';
+  });
+</script>
+</body>
+</html>
