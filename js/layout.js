@@ -23,7 +23,11 @@
   var MANAGER_URL = "https://t.me/asdAkdk";
 
   // Ссылки на соцсети проекта (пока заглушки)
-  var SOCIAL = { vk: "#", tg: "#", dzen: "#" };
+  var SOCIAL = {
+    vk: "https://vk.ru/club236572070",
+    tg: "https://t.me/ryadomhelps",
+    dzen: "https://dzen.ru/id/645f522785ccb948091cc8fd"
+  };
 
   /* ---------- меню ---------- */
 
